@@ -1,9 +1,8 @@
 <launch>
-  <!-- This launchfile loads a differential drive robot into RViz, whose parameters are set
-       and can be modified in diff_params.yaml -->
+  <arg name="model" default="$(find mini_ros)/urdf/ceasar.urdf.xacro"/>
 
   <!-- load the urdf into the parameter server from the xacro file-->
-  <param name="robot_description" command="xacro '$(find mini_ros)/urdf/spot.urdf.xacro'" />
+  <param name="robot_description" command="xacro $(arg model)" />
 
   <!-- The robot_state_publisher reads the urdf from /robot_description parameter
        and listens to joint information on the /joint_states topic -->
