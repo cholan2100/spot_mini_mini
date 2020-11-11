@@ -245,7 +245,7 @@
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_back_left_upper_leg" type="revolute"
               axis_xyz="1 0 0"
-              origin_rpy="0 0 0" origin_xyz="0.024075 0.026 -0.010561"
+              origin_rpy="0 0 0" origin_xyz="0.024075 -0.026 -0.010561"
               parent="back_left_hip" child="back_left_upper_leg"
               effort="4.0" velocity="4.0"
               damping="0.0"
