@@ -20,7 +20,7 @@
               width="0.23750"
               height="0.072477"
               matname="white"
-              meshfile="package://ceasar/stl/mainbody.stl"
+              meshfile="package://mini_ros/stl/ceasar/mainbody.stl"
               meshscale="0.001 0.001 0.001" /> 
   <xacro:frame_joint name="base_base" type="fixed"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
@@ -36,7 +36,7 @@
               width="0.150"
               height="0.025"
               matname="black"
-              meshfile="package://ceasar/stl/Chassis_Left_Side.stl"
+              meshfile="package://mini_ros/stl/ceasar/Chassis_Left_Side.stl"
               meshscale="0.001 0.001 0.001" />
   <!-- MAIN BODY TO CHASSIS LEFT -->
 <xacro:frame_joint name="base_left" type="fixed"
@@ -52,7 +52,7 @@
               width="0.150"
               height="0.025"
               matname="black"
-              meshfile="package://ceasar/stl/Chassis_Right_Side.stl"
+              meshfile="package://mini_ros/stl/ceasar/Chassis_Right_Side.stl"
               meshscale="0.001 0.001 0.001" />
   <!-- MAIN BODY TO CHASSIS RIGHT -->
 <xacro:frame_joint name="base_right" type="fixed"
@@ -69,7 +69,7 @@
               width="0.070"
               height="0.0575"
               matname="black"
-              meshfile="package://ceasar/stl/bracket.stl"
+              meshfile="package://mini_ros/stl/ceasar/bracket.stl"
               meshscale="0.001 0.001 0.001" />
   <!-- joint X at front of mainbody -->
   <xacro:frame_joint name="base_front_bracket" type="fixed"
@@ -86,7 +86,7 @@
               width="0.082641"
               height="0.074505"
               matname="white"
-              meshfile="package://ceasar/stl/front.stl"
+              meshfile="package://mini_ros/stl/ceasar/front.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:frame_joint name="base_front" type="fixed"
                   origin_rpy="0 0 0" origin_xyz="0.057 -0.110043 -0.002749"
@@ -102,7 +102,7 @@
               width="0.070"
               height="0.0575"
               matname="black"
-              meshfile="package://ceasar/stl/bracket.stl"
+              meshfile="package://mini_ros/stl/ceasar/bracket.stl"
               meshscale="0.001 0.001 0.001" />
   <!-- MAIN BODY TO BACK BRACKET -->
   <xacro:frame_joint name="base_back_bracket" type="fixed"
@@ -119,7 +119,7 @@
               width="0.06875"
               height="0.074"
               matname="white"
-              meshfile="package://ceasar/stl/back.stl"
+              meshfile="package://mini_ros/stl/ceasar/back.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:frame_joint name="base_back" type="fixed"
                   origin_rpy="0 0 0" origin_xyz="0.057 0.09910 0.072062"
@@ -137,7 +137,7 @@
               width="0.05275"
               height="0.058661"
               matname="black"
-              meshfile="package://ceasar/stl/LEFT_FRONT_HIP.stl"
+              meshfile="package://mini_ros/stl/ceasar/LEFT_FRONT_HIP.stl"
               meshscale="0.001 0.001 0.001" /> 
   <!-- Y axis revolve: 60 - 120 degree -->
   <xacro:rev_joint name="motor_front_left_hip" type="revolute"
@@ -152,14 +152,14 @@
   <!-- UPPER LEG -->
   <xacro:mesh_link name="front_left_upper_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="0.035045 0.045647 -0.001823"
+              i_rpy="0 0 0" i_xyz="0.035045 -0.001823 -0.045647"
               mass="0.135"
               c_xyz="0 0.02 -0.05"
               length="0.063251"
-              width="0.148092"
-              height="0.064156"
+              width="0.064156"
+              height="0.148092"
               matname="white"
-              meshfile="package://ceasar/stl/LEFT_UPPER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/LEFT_UPPER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_front_left_upper_leg" type="revolute"
               axis_xyz="1 0 0"
@@ -173,28 +173,28 @@
   <!-- LOWER LEG -->
   <xacro:mesh_link name="front_left_lower_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="0.027767 -0.029091 0.000689"
+              i_rpy="0 0 0" i_xyz="0.027767 -0.000689 -0.029091"
               mass="0.092"
               c_xyz="0 0 -0.06"
               length="0.05325"
-              width="0.150239"
-              height="0.030"
+              width="0.030"
+              height="0.150239"
               matname="black"
-              meshfile="package://ceasar/stl/LEFT_LOWER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/LEFT_LOWER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_front_left_lower_leg" type="revolute"
               axis_xyz="1 0 0"
-              origin_rpy="0 0 0" origin_xyz="0.008 0.106389 -0.029925"
+              origin_rpy="0 0 0" origin_xyz="0.008 -0.029925 -0.106389"
               parent="front_left_upper_leg" child="front_left_lower_leg"
               effort="4.0" velocity="4.0"
               damping="0.0"
               friction="0.0"
-              lower="0"
+              lower="-${pi}"
               upper="${pi/2}"/>
   <!-- FOOT -->
   <xacro:mesh_link_sphere name="front_left_foot"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="0 0 0"
+              i_rpy="0 0 0" i_xyz="-0.011499 0.004147 -0.00415"
               mass="0.006"
               c_xyz="${-0.247} ${-0.068} ${0.18}"
               length="0.028"
@@ -202,10 +202,10 @@
               height="0.031435"
               radius="0.02"
               matname="grey"
-              meshfile="package://ceasar/stl/foot.stl"
+              meshfile="package://mini_ros/stl/ceasar/foot.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:frame_joint name="front_left_leg_foot" type="fixed"
-              origin_rpy="0 0 0" origin_xyz="0.03625 -0.120257 -0.002443"
+              origin_rpy="0 0 0" origin_xyz="0.03775 0.002443 -0.120257"
               parent="front_left_lower_leg" child="front_left_foot"/>
 
   <!-- BACK LEFT LEG -->
@@ -219,7 +219,7 @@
               width="0.05275"
               height="0.058661"
               matname="black"
-              meshfile="package://ceasar/stl/LEFT_BACK_HIP.stl"
+              meshfile="package://mini_ros/stl/ceasar/LEFT_BACK_HIP.stl"
               meshscale="0.001 0.001 0.001" /> 
   <!-- Y axis revolve: 60 - 120 degree -->
   <xacro:rev_joint name="motor_back_left_hip" type="revolute"
@@ -234,44 +234,44 @@
    <!-- UPPER LEG -->
   <xacro:mesh_link name="back_left_upper_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="0.035045 0.045647 -0.001823"
+              i_rpy="0 0 0" i_xyz="0.035045 -0.001823 -0.045647"
               mass="0.135"
               c_xyz="0 0.02 -0.05"
               length="0.063251"
-              width="0.148092"
-              height="0.064156"
+              width="0.064156"
+              height="0.148092"
               matname="white"
-              meshfile="package://ceasar/stl/LEFT_UPPER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/LEFT_UPPER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_back_left_upper_leg" type="revolute"
               axis_xyz="1 0 0"
-              origin_rpy="0 0 0" origin_xyz="0.024075 -0.026 -0.010561"
+              origin_rpy="0 0 0" origin_xyz="0.024075 0.026 -0.010561"
               parent="back_left_hip" child="back_left_upper_leg"
               effort="4.0" velocity="4.0"
               damping="0.0"
               friction="0.0"
-              lower="${-pi/2}"
+              lower="-2.9"
               upper="2.59"/>
   <!-- LOWER LEG -->
   <xacro:mesh_link name="back_left_lower_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="0.027767 -0.029091 0.000689"
-              mass="0.092"
-              c_xyz="0 0 -0.06"
-              length="0.05325"
-              width="0.150239"
-              height="0.030"
+              i_rpy="0 0 0" i_xyz="-0.011499 0.004147 -0.00415"
+              mass="0.006"
+              c_xyz="${-0.247} ${-0.068} ${0.18}"
+              length="0.028"
+              width="0.031435"
+              height="0.031435"
               matname="black"
-              meshfile="package://ceasar/stl/LEFT_LOWER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/LEFT_LOWER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_back_left_lower_leg" type="revolute"
               axis_xyz="1 0 0"
-              origin_rpy="0 0 0" origin_xyz="0.008 0.106389 -0.029925"
+               origin_rpy="0 0 0" origin_xyz="0.008 -0.029925 -0.106389"
               parent="back_left_upper_leg" child="back_left_lower_leg"
               effort="4.0" velocity="4.0"
               damping="0.0"
               friction="0.0"
-              lower="0"
+              lower="-${pi}"
               upper="${pi/2}"/>
   <!-- FOOT -->
   <xacro:mesh_link_sphere name="back_left_foot"
@@ -284,24 +284,24 @@
               height="0.031435"
               radius="0.02"
               matname="grey"
-              meshfile="package://ceasar/stl/foot.stl"
+              meshfile="package://mini_ros/stl/ceasar/foot.stl"
               meshscale="0.001 0.001 0.001" /> <!-- m to mm -->
   <xacro:frame_joint name="back_left_leg_foot" type="fixed"
-              origin_rpy="0 0 0" origin_xyz="0.03625 -0.120257 -0.002443"
+              origin_rpy="0 0 0" origin_xyz="0.03775 0.002443 -0.120257"
               parent="back_left_lower_leg" child="back_left_foot"/>
 
   <!-- FRONT RIGHT LEG -->
   <!-- HIP -->
   <xacro:mesh_link name="front_right_hip"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="-0.009118 0.028986 -0.010824"
-              mass="0.1"
-              c_xyz="0 0 0"
-              length="0.03740"
-              width="0.05275"
-              height="0.058661"
+              i_rpy="0 0 0" i_xyz="-0.011499 0.004147 -0.00415"
+              mass="0.006"
+              c_xyz="${-0.247} ${-0.068} ${0.18}"
+              length="0.028"
+              width="0.031435"
+              height="0.031435"
               matname="black"
-              meshfile="package://ceasar/stl/RIGHT_FRONT_HIP.stl"
+              meshfile="package://mini_ros/stl/ceasar/RIGHT_FRONT_HIP.stl"
               meshscale="0.001 0.001 0.001" /> 
   <!-- Y axis revolve: 60 - 120 degree -->
   <xacro:rev_joint name="motor_front_right_hip" type="revolute"
@@ -316,14 +316,14 @@
   <!-- UPPER LEG -->
   <xacro:mesh_link name="front_right_upper_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="-0.035045 0.045647 -0.001823"
+              i_rpy="0 0 0" i_xyz="-0.035045 -0.001823 -0.045647"
               mass="0.135"
               c_xyz="0 0.02 -0.05"
               length="0.063251"
-              width="0.148092"
-              height="0.064156"
+              width="0.064156"
+              height="0.148092"
               matname="white"
-              meshfile="package://ceasar/stl/RIGHT_UPPER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/RIGHT_UPPER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_front_right_upper_leg" type="revolute"
               axis_xyz="1 0 0"
@@ -337,27 +337,27 @@
   <!-- LOWER LEG -->
   <xacro:mesh_link name="front_right_lower_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="-0.027767 -0.029091 0.000689"
+              i_rpy="0 0 0" i_xyz="-0.027767 -0.000689 -0.029091"
               mass="0.092"
               c_xyz="0 0 -0.06"
               length="0.05325"
-              width="0.150239"
-              height="0.030"
+              width="0.030"
+              height="0.150239"
               matname="black"
-              meshfile="package://ceasar/stl/RIGHT_LOWER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/RIGHT_LOWER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_front_right_lower_leg" type="revolute"
               axis_xyz="1 0 0"
-              origin_rpy="0 0 0" origin_xyz="0.008 0.106389 -0.029925"
+              origin_rpy="0 0 0" origin_xyz="-0.008 -0.029925 -0.106389"
               parent="front_right_upper_leg" child="front_right_lower_leg"
               effort="4.0" velocity="4.0"
               damping="0.0"
               friction="0.0"
-              lower="0"
+              lower="-${pi}"
               upper="${pi/2}"/>
   <!-- FOOT -->
   <xacro:mesh_link_sphere name="front_right_foot"
-              origin_rpy="${pi/2} 0 ${pi}" origin_xyz="0 0 0"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
               i_rpy="0 0 0" i_xyz="0 0 0"
               mass="0.006"
               c_xyz="${-0.247} ${-0.068} ${0.18}"
@@ -366,10 +366,10 @@
               height="0.031435"
               radius="0.02"
               matname="grey"
-              meshfile="package://ceasar/stl/foot.stl"
+              meshfile="package://mini_ros/stl/ceasar/foot.stl"
               meshscale="0.001 0.001 0.001" /> <!-- m to mm -->
   <xacro:frame_joint name="front_right_leg_foot" type="fixed"
-              origin_rpy="0 0 0" origin_xyz="-0.03625 -0.120257 -0.002443"
+              origin_rpy="0 0 0" origin_xyz="-0.01475 0.002443 -0.120257"
               parent="front_right_lower_leg" child="front_right_foot"/>
 
   <!-- BACK RIGHT LEG -->
@@ -383,7 +383,7 @@
               width="0.05275"
               height="0.058661"
               matname="black"
-              meshfile="package://ceasar/stl/RIGHT_BACK_HIP.stl"
+              meshfile="package://mini_ros/stl/ceasar/RIGHT_BACK_HIP.stl"
               meshscale="0.001 0.001 0.001" /> 
   <!-- Y axis revolve: 60 - 120 degree -->
   <xacro:rev_joint name="motor_back_right_hip" type="revolute"
@@ -398,14 +398,14 @@
   <!-- UPPER LEG -->
   <xacro:mesh_link name="back_right_upper_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="-0.035045 0.045647 -0.001823"
+              i_rpy="0 0 0" i_xyz="-0.035045 -0.001823 -0.045647"
               mass="0.135"
               c_xyz="0 0.02 -0.05"
               length="0.063251"
-              width="0.148092"
-              height="0.064156"
+              width="0.064156"
+              height="0.148092"
               matname="white"
-              meshfile="package://ceasar/stl/RIGHT_UPPER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/RIGHT_UPPER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_back_right_upper_leg" type="revolute"
               axis_xyz="1 0 0"
@@ -419,27 +419,27 @@
   <!-- LOWER LEG -->
   <xacro:mesh_link name="back_right_lower_leg"
               origin_rpy="0 0 0" origin_xyz="0 0 0"
-              i_rpy="0 0 0" i_xyz="-0.027767 -0.029091 0.000689"
+              i_rpy="0 0 0" i_xyz="-0.027767 -0.000689 -0.029091"
               mass="0.092"
               c_xyz="0 0 -0.06"
               length="0.05325"
-              width="0.150239"
-              height="0.030"
+              width="0.030"
+              height="0.150239"
               matname="black"
-              meshfile="package://ceasar/stl/RIGHT_LOWER_LEG.stl"
+              meshfile="package://mini_ros/stl/ceasar/RIGHT_LOWER_LEG.stl"
               meshscale="0.001 0.001 0.001" />
   <xacro:rev_joint name="motor_back_right_lower_leg" type="revolute"
               axis_xyz="1 0 0"
-              origin_rpy="0 0 0" origin_xyz="0.008 0.106389 -0.029925"
+              origin_rpy="0 0 0" origin_xyz="-0.008 -0.029925 -0.106389"
               parent="back_right_upper_leg" child="back_right_lower_leg"
               effort="4.0" velocity="4.0"
               damping="0.0"
               friction="0.0"
-              lower="0"
+              lower="-${pi}"
               upper="${pi/2}"/>
   <!-- FOOT -->
   <xacro:mesh_link_sphere name="back_right_foot"
-              origin_rpy="${pi/2} 0 ${pi}" origin_xyz="0 0 0"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
               i_rpy="0 0 0" i_xyz="0 0 0"
               mass="0.006"
               c_xyz="${-0.247} ${-0.068} ${0.18}"
@@ -448,10 +448,10 @@
               height="0.031435"
               radius="0.02"
               matname="grey"
-              meshfile="package://ceasar/stl/foot.stl"
+              meshfile="package://mini_ros/stl/ceasar/foot.stl"
               meshscale="0.001 0.001 0.001" /> <!-- m to mm -->
   <xacro:frame_joint name="back_right_leg_foot" type="fixed"
-              origin_rpy="0 0 0" origin_xyz="-0.03625 -0.120257 -0.002443"
+              origin_rpy="0 0 0" origin_xyz="-0.01475 0.002443 -0.120257"
               parent="back_right_lower_leg" child="back_right_foot"/>
 
   <!-- Robot tranmission for Gazebo -->
